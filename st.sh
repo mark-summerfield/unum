@@ -1,5 +1,5 @@
 #!/bin/bash
-clc -s -e unumber_test.go
+clc -s -e ureal_test.go
 cat Version.dat
 go mod tidy
 go fmt .
