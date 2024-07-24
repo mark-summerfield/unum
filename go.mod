@@ -1,3 +1,3 @@
-module github.com/mark-summerfield/unumber
+module github.com/mark-summerfield/ureal
 
 go 1.22.5
