@@ -6,8 +6,10 @@ package ureal
 
 import (
 	_ "embed"
+	"fmt"
 	"math"
 	"strconv"
+	"strings"
 )
 
 //go:embed Version.dat
@@ -64,4 +66,17 @@ func StrToInt(s string, default_ int) int {
 	} else {
 		return i
 	}
+}
+
+func Commas[I Integer](i I) string {
+	sign := ""
+	value := fmt.Sprint(i) // Can't use Itoa() with Integer
+	if value[0] == '-' {
+		sign = "-"
+		value = value[1:]
+	}
+	for i := len(value) - 3; i >= 0; i -= 3 {
+		value = value[:i] + "," + value[i:]
+	}
+	return sign + strings.TrimPrefix(value, ",")
 }
