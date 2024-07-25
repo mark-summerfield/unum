@@ -1,6 +1,7 @@
 // Copyright © 2024 Mark Summerfield. All rights reserved.
 
-// This package provides number-related functions and generic numeric types.
+// This package provides number-related functions and some generic numeric
+// types.
 package ureal
 
 import (
