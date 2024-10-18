@@ -1,7 +1,9 @@
 // Copyright © 2024 Mark Summerfield. All rights reserved.
 
 // This package provides number-related functions and some generic numeric
-// types.
+// types. ([TOC])
+//
+// [TOC]: file:///home/mark/app/golib/doc/index.html
 package ureal
 
 import (
