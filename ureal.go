@@ -1,7 +1,7 @@
 // Copyright © 2024 Mark Summerfield. All rights reserved.
 
-// This package provides number-related functions and some generic numeric
-// types. ([TOC])
+// ([TOC]) This package provides number-related functions and some generic
+// numeric types.
 //
 // [TOC]: file:///home/mark/app/golib/doc/index.html
 package ureal
@@ -43,7 +43,7 @@ func IsClose(a, b float64) bool {
 		math.Abs(b)), math.SmallestNonzeroFloat64)
 }
 
-//end::IsClose[]
+// end::IsClose[]
 
 // IsZero returns true if x is close to 0.
 // Should be adequate for test comparisons.
@@ -60,6 +60,14 @@ func RoundToNearest(f float64, nearestTo int) float64 {
 	}
 	ntf := float64(nearestTo)
 	return math.Round(f/ntf) * ntf
+}
+
+func MustStrToInt(s string) int {
+	if i, err := strconv.Atoi(s); err != nil {
+		panic(err)
+	} else {
+		return i
+	}
 }
 
 func StrToInt(s string, default_ int) int {
