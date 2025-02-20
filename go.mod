@@ -1,3 +1,3 @@
-module github.com/mark-summerfield/ureal
+module github.com/mark-summerfield/unum
 
 go 1.23

@@ -1,10 +1,10 @@
-// Copyright © 2024 Mark Summerfield. All rights reserved.
+// Copyright © 2024-25 Mark Summerfield. All rights reserved.
 
 // ([TOC]) This package provides number-related functions and some generic
 // numeric types.
 //
 // [TOC]: file:///home/mark/app/golib/doc/index.html
-package ureal
+package unum
 
 import (
 	_ "embed"
