@@ -32,6 +32,12 @@ type SignedNumber interface {
 	~float64 | ~float32 | ~int | ~int8 | ~int16 | ~int32 | ~int64
 }
 
+// Comparable allows only string or integer map keys or set elements.
+type Comparable interface {
+	~string | ~int | ~int8 | ~int16 | ~int32 | ~int64 |
+		~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr
+}
+
 const decimalFactor = 1e-9 // use: 1e-1 (1 sf) to 1e-14 (14 sf)
 
 // IsClose returns true if a and b are very close to each other.
