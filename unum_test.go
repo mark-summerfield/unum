@@ -156,35 +156,59 @@ func Test_RoundToNearest(t *testing.T) {
 }
 
 func TestCommas(t *testing.T) {
-	ints := []int{-1, -200, -3450, -17392, 0, 1, 20, 344, 4834, 58302,
-		2934849, 9879132421}
-	expected := []string{"-1", "-200", "-3,450", "-17,392", "0", "1", "20",
-		"344", "4,834", "58,302", "2,934,849", "9,879,132,421"}
+	ints := []int{
+		-1, -200, -3450, -17392, 0, 1, 20, 344, 4834, 58302,
+		2934849, 9879132421,
+	}
+	expected := []string{
+		"-1", "-200", "-3,450", "-17,392", "0", "1", "20",
+		"344", "4,834", "58,302", "2,934,849", "9,879,132,421",
+	}
 	for i := 0; i < len(ints); i++ {
 		actual := Commas(ints[i])
 		if actual != expected[i] {
 			t.Errorf("expected %s got %s", expected[i], actual)
 		}
 	}
-	uints := []uint{1, 200, 3450, 17392, 0, 1, 20, 344, 4834, 58302,
-		2934849, 9879132421}
-	expected = []string{"1", "200", "3,450", "17,392", "0", "1", "20",
-		"344", "4,834", "58,302", "2,934,849", "9,879,132,421"}
+	uints := []uint{
+		1, 200, 3450, 17392, 0, 1, 20, 344, 4834, 58302,
+		2934849, 9879132421,
+	}
+	expected = []string{
+		"1", "200", "3,450", "17,392", "0", "1", "20",
+		"344", "4,834", "58,302", "2,934,849", "9,879,132,421",
+	}
 	for i := 0; i < len(uints); i++ {
 		actual := Commas(uints[i])
 		if actual != expected[i] {
 			t.Errorf("expected %s got %s", expected[i], actual)
 		}
 	}
-	runes := []rune{1, 200, 3450, 17392, 0, 1, 20, 344, 4834, 58302,
-		2934849}
-	expected = []string{"1", "200", "3,450", "17,392", "0", "1", "20",
-		"344", "4,834", "58,302", "2,934,849"}
+	runes := []rune{
+		1, 200, 3450, 17392, 0, 1, 20, 344, 4834, 58302,
+		2934849,
+	}
+	expected = []string{
+		"1", "200", "3,450", "17,392", "0", "1", "20",
+		"344", "4,834", "58,302", "2,934,849",
+	}
 	for i := 0; i < len(runes); i++ {
 		actual := Commas(runes[i])
 		if actual != expected[i] {
 			t.Errorf("expected %s got %s", expected[i], actual)
 		}
+	}
+}
+
+func Test_Clamp(t *testing.T) {
+	if v := Clamp(-5, 0, 11); v != 0 {
+		t.Errorf("expected 0 got %d", v)
+	}
+	if v := Clamp(-11.5, -15, 0); !IsClose(v, -11.5) {
+		t.Errorf("expected 0 got %f", v)
+	}
+	if v := Clamp(0, 101, 100); v != 100 {
+		t.Errorf("expected 0 got %d", v)
 	}
 }
 

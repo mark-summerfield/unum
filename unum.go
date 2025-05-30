@@ -96,3 +96,16 @@ func Commas[I Integer](i I) string {
 	}
 	return sign + strings.TrimPrefix(value, ",")
 }
+
+// Clamp returns minimum if that's bigger than value; maximum if that's
+// smaller than value; or value if it is in range [minimum, maximum]
+func Clamp[N Number](minimum, value, maximum N) N {
+	switch {
+	case value < minimum:
+		return minimum
+	case value > maximum:
+		return maximum
+	default:
+		return value
+	}
+}
