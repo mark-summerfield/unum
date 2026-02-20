@@ -164,7 +164,7 @@ func TestCommas(t *testing.T) {
 		"-1", "-200", "-3,450", "-17,392", "0", "1", "20",
 		"344", "4,834", "58,302", "2,934,849", "9,879,132,421",
 	}
-	for i := 0; i < len(ints); i++ {
+	for i := range ints {
 		actual := Commas(ints[i])
 		if actual != expected[i] {
 			t.Errorf("expected %s got %s", expected[i], actual)
@@ -178,7 +178,7 @@ func TestCommas(t *testing.T) {
 		"1", "200", "3,450", "17,392", "0", "1", "20",
 		"344", "4,834", "58,302", "2,934,849", "9,879,132,421",
 	}
-	for i := 0; i < len(uints); i++ {
+	for i := range uints {
 		actual := Commas(uints[i])
 		if actual != expected[i] {
 			t.Errorf("expected %s got %s", expected[i], actual)
@@ -192,7 +192,7 @@ func TestCommas(t *testing.T) {
 		"1", "200", "3,450", "17,392", "0", "1", "20",
 		"344", "4,834", "58,302", "2,934,849",
 	}
-	for i := 0; i < len(runes); i++ {
+	for i := range runes {
 		actual := Commas(runes[i])
 		if actual != expected[i] {
 			t.Errorf("expected %s got %s", expected[i], actual)
